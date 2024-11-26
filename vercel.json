@@ -1,0 +1,8 @@
+{
+    "build": {
+      "env": {
+        "DATABASE_URL": "mysql://Itisha:Itisha@2021ITI@127.0.0.1:3306/CMS_DB"
+      }
+    },
+    "buildCommand": "prisma generate && next build"
+  }
