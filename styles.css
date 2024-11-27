@@ -185,4 +185,45 @@ div {
     margin: 0;
     font-size: 1.5rem;
   }
+  /* plugins/imageEmbed/styles.css */
+/* .image-embed {
+    margin-bottom: 20px;
+  } */
+  
+  .image-embed img {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  /* plugins/imageEmbed/styles.css */
+/* .image-embed {
+  margin-bottom: 20px;
+} */
+
+.image-embed input {
+  width: 100%;
+  padding: 8px;
+  margin-right: 10px;
+}
+
+.image-embed button {
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+.delete button{
+  /* position: relative;
+    top: -2rem; */
+    left: 1.2rem;
+    margin-top: -1rem !important;
+}
+.image-embed button:hover {
+  background-color: #005bb5;
+}
+
   

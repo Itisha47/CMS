@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import slugify from 'slugify';
 
 const prisma = new PrismaClient();
 
@@ -26,15 +27,15 @@ export default async function handler(req, res) {
     
         const { id, title, slug, content, createdAt, updatedAt } = body;
         
-        
+       
         // if (typeof req.body === "string") {
         //   console.log("Body is a string, attempting to parse...");
         //   req.body = JSON.parse(req.body);
         // }
-        if (!title || !slug || !content) {
+        if (!title || !content) {
           return res.status(400).json({ error: "All fields are required" });
         }
-    
+        const generatedSlug = slug || slugify(title, { lower: true, strict: true });
         try {
             const existingPost = await prisma.post.findUnique({
                 where: { id: parseInt(id) },
@@ -47,7 +48,7 @@ export default async function handler(req, res) {
             data: {
               id: parseInt(id), // Ensure ID is an integer
               title,
-              slug,
+              slug : generatedSlug,
               content,
               createdAt: new Date(createdAt), // Ensure valid date format
               updatedAt: new Date(updatedAt),
